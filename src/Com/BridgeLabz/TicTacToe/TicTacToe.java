@@ -8,6 +8,8 @@ public class TicTacToe {
     private  static  char computer;
     private static int moves=0;
 
+    private static boolean winner=false;
+
     public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe Game....!!!");
         board();
@@ -65,6 +67,26 @@ public class TicTacToe {
         }
     }
 
+    public static void winningConditions(){
+        if (element[0]==element[1] && element[1]==element[2] && element[2]==player){
+            winner=true;
+        } else if(element[3]==element[4] && element[4]==element[5] && element[5]==player){
+            winner=true;
+        } else if(element[6]==element[7] && element[7]==element[8] && element[8]==player){
+            winner=true;
+        } else if (element[0]==element[3] && element[3]==element[6] && element[6]==player) {
+            winner=true;
+        } else if (element[1]==element[4] && element[4]==element[7] && element[7]==player) {
+            winner=true;
+        } else if (element[2]==element[5] && element[5]==element[8] && element[8]==player) {
+            winner=true;
+        } else if (element[0]==element[4] && element[4]==element[8] && element[8]==player) {
+            winner=true;
+        } else if (element[2]==element[4] && element[4]==element[6] && element[6]==player) {
+            winner=true;
+        }
+    }
+
     public static void gamePlay(){
         while(moves < 9){
             Scanner sc=new Scanner(System.in);
@@ -74,6 +96,11 @@ public class TicTacToe {
                 element[position]=player;
                 printBoard();
                 moves++;
+                winningConditions();
+                if(winner==true){
+                    System.out.println("Player has won");
+                    System.exit(0);
+                }
                 gamePlay();
             }
             else {
