@@ -1,12 +1,9 @@
 package Com.BridgeLabz.TicTacToe;
 
 import java.util.Scanner;
-
 public class TicTacToe {
-
     private static char[] element;
     private static char player;
-
     private  static  char computer;
     private static int moves=0;
 
@@ -36,7 +33,6 @@ public class TicTacToe {
             computer = 'X';
         System.out.println("User mark is :" + player);
     }
-
     public static void printBoard() {
         {
             System.out.println("|---|---|---|");
