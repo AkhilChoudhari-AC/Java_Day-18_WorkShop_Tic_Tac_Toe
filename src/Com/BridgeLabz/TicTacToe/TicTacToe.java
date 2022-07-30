@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class TicTacToe {
     private static char[] element;
     private static char player;
+
     private  static  char computer;
     private static int moves=0;
 
@@ -11,9 +12,11 @@ public class TicTacToe {
         System.out.println("Welcome to Tic Tac Toe Game....!!!");
         board();
         userinput();
+        toss();
         printBoard();
         gamePlay();
     }
+
 
     public static void board() {
         element = new char[10];
@@ -33,6 +36,17 @@ public class TicTacToe {
             computer = 'X';
         System.out.println("User mark is :" + player);
     }
+
+    public  static void toss(){
+        int result=(int)Math.floor(Math.random() * 10) % 2;
+        if (result==1){
+            System.out.println("Player has won and he will play first");
+        }
+        else{
+            System.out.println("Computer will play first");
+        }
+    }
+
     public static void printBoard() {
         {
             System.out.println("|---|---|---|");
