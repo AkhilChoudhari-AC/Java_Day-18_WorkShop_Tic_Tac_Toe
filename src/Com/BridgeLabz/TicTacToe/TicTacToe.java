@@ -1,5 +1,7 @@
 package Com.BridgeLabz.TicTacToe;
 
+import java.util.Scanner;
+
 public class TicTacToe {
 
     private static char[] element;
@@ -7,11 +9,25 @@ public class TicTacToe {
     public static void main(String[] args) {
         System.out.println("Welcome to Tic Tac Toe Game....!!!");
         board();
+        userinput();
     }
-    private static void board() {
+    public static void board() {
         element = new char[10];
         for(int i=1; i<10; i++) {
-            element[i]='.';
+            element[i]=' ';
         }
+    }
+    public static void userinput() {
+        Scanner in=new Scanner(System.in);
+        System.out.println(" Select Your Marker (O or X): ");
+        char player=in.next().charAt(0);
+        char computer;
+        if (player=='X') {
+            computer='O';
+            System.out.println("User mark is :" +player);}
+
+        else
+            computer='X';
+        System.out.println("User mark is :" +player);
     }
 }
